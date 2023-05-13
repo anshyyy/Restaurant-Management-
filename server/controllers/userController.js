@@ -126,10 +126,30 @@ const verifyEmailtoken = async (req, res) => {
       })
     }
   }
-
+const getUser = async (req,res)=>{
+    try {
+       // console.log(req.params);
+        const user = await User.findOne({username:req.params.username}).lean();
+        delete user['password'];
+        console.log(user);
+        return res.status(201).json({
+            message:"Successfully fetched the user",
+            data:user,
+            success:false,
+          })
+    } catch (error) {
+        console.log(error);
+        return res.status(501).json({
+            message:"not able to fetch user",
+            success:false,
+            err:error,
+          })
+    }
+}
 
 module.exports = {
     create,
     verifyEmailtoken,
-    signIn
+    signIn,
+    getUser
 }
