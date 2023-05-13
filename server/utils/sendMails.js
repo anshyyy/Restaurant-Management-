@@ -1,16 +1,13 @@
 const nodemailer = require("nodemailer");
 const { EMAIL_USER, EMAIL_PASS, BACKEND_BASE_URL, } = require("../config/serverConfig");
-
 let transporter = nodemailer.createTransport({
   service :"gmail",
   port:587,
   host:'smtp.gmail.com',
   secure:true,
-         auth : {
-          
+  auth : {
             user : EMAIL_USER,
             pass : EMAIL_PASS
-            
          }
 });
 
@@ -18,7 +15,7 @@ module.exports = {
   verifyEmail: async function verifyUserEmail(name, userEmail, token) {
     try {
       let info = await transporter.sendMail({
-        from: `LinkCollect ${USER}`,
+        from: `Yum Bytes ${EMAIL_USER}`,
         to: userEmail,
         subject: "Email Verification",
         text: "HELLO" + name,

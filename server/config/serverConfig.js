@@ -8,5 +8,8 @@ module.exports = {
     DB_NAME:process.env.DB_NAME,
     DB_PASS:process.env.DB_PASS,
     SALT:process.env.SALT,
-    BACKEND_BASE_URL:process.env.BACKEND_BASE_URL
+    BACKEND_BASE_URL:process.env.BACKEND_BASE_URL,
+    EMAIL_USER:process.env.EMAIL_USER,
+    EMAIL_PASS:process.env.EMAIL_PASS,
+    JWT_KEY:process.env.JWT_KEY
 }

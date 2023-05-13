@@ -1,10 +1,11 @@
 const express = require('express');
-const {create,verifyEmailtoken} = require('../../controllers/userController');
+const {create,verifyEmailtoken,signIn} = require('../../controllers/userController');
 
 const router = express.Router();
 
 
 router.post("/user/signup",create);
+router.post("/user/signin",signIn);
 router.get("/user/verify-email", verifyEmailtoken);
 
 

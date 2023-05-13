@@ -1,7 +1,9 @@
 const User = require('../models/user');
 const randomBytes = require("randombytes");
 const {verifyEmail} = require("../utils/sendMails");
-const {BACKEND_BASE_URL} = require("../config/serverConfig");
+const {BACKEND_BASE_URL,JWT_KEY} = require("../config/serverConfig");
+const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 const create = async (req,res)=> {
         try {
@@ -30,17 +32,15 @@ const create = async (req,res)=> {
 
 const verifyEmailtoken = async (req, res) => {
     try {
-      const user = await User.findOne({ emailToken: token });
+     console.log(req.query);
+      const user = await User.findOne({ emailToken: req.query.token });
+      //console.log(user);
       if (!user) {
-        console.log("User dosent exist");
-        console.log(error);           
-      throw error;
+         return res.status(404).json({success:false,message:"user dont exists"})        
       }
-      var data = {
-        emailToken: null,
-        verified: 1,
-      };
-      await User.findOneAndUpdate({ emailToken: token }, data);
+      user.emailToken = null;
+      user.verified = 1;
+      await user.save();
     //   const token = userService.createToken({ userId: response._id, username: response.username });
   
     //   if (PRODUCTION !== "production") {
@@ -59,10 +59,77 @@ const verifyEmailtoken = async (req, res) => {
       });
     }
   };
+  const createToken = function(user) {
+    try {
+      console.log("in user", user,JWT_KEY);
+      const result = jwt.sign(user, JWT_KEY, { expiresIn: "1h" });
+      return result;
+    } catch (error) {
+      console.log("Something went wrong in token creation.");
+      throw error;
+    }
+  }
 
+
+ const verifyToken= function(token) {
+    try {
+      const response = jwt.verify(token, JWT_KEY);
+      return response;
+    } catch (error) {
+      console.log("Something went wrong during verification of the token");
+      throw error;
+    }
+  }
+ const checkPassword= async(userInputPassword, encryptedPassword)=>{
+    try {
+      return bcrypt.compareSync(userInputPassword, encryptedPassword);
+    } catch (error) {
+      console.log("Something went wrong in password comparison");
+      throw error;
+    }
+  }
+  const signIn= async (req,res) =>{
+    try {
+      const email = req.body.email;
+      const plainPassword = req.body.password
+      //step 1 -> fetch the user
+      const user = await User.findOne({email:email});
+      console.log(user);
+      // step 2 -> compare the user
+      const encryptedPassword = user.password;
+
+      //const newP = bcrypt.hashSync(plainPassword, 12);
+
+      const passwordMatch = await checkPassword(
+        plainPassword,
+        encryptedPassword
+      );
+
+      if (!passwordMatch) {
+        console.log("Password dosen't match");
+        throw { error: "Incorrect password" };
+      }
+      console.log(passwordMatch);
+      const newJWTtoken = createToken({ userId: user._id, username: user.username });
+      return res.status(200).json({
+        message:"SUccessfully logged in",
+        success:true,
+        token:newJWTtoken,
+        username:user.username
+      })
+    } catch (error) {
+      console.log("Something went wrong in signIn process");
+      return res.status(501).json({
+        message:"wrong password",
+        success:false,
+        err:error,
+      })
+    }
+  }
 
 
 module.exports = {
     create,
-    verifyEmailtoken
+    verifyEmailtoken,
+    signIn
 }
