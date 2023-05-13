@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const { SALT } = require("../config");
+const { SALT } = require("../config/serverConfig");
 const bcrypt = require("bcrypt");
 
 
@@ -17,7 +17,6 @@ const userSchema = new Schema(
     },
     username : {
        type:String,
-       required:true,
        unique:true
     },
     registration_no : {
@@ -36,14 +35,11 @@ const userSchema = new Schema(
     role : {
         type:String,
         enum :["user","staff","other","owner"],
-        default :"user"
+        default :"user",
+        required:true
     },
     password: {
       type: String,
-    },
-    isPublic : {
-      type:Boolean,
-      default : true
     },
     emailToken: {
       type: String,
