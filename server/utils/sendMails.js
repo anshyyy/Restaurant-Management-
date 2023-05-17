@@ -35,4 +35,83 @@ module.exports = {
       console.log("error",error);
     }
   },
+  sendMailForVerification:async(user,role)=>{
+    try {
+      let info = await transporter.sendMail({
+        from: `Yum Bytes ${EMAIL_USER}`,
+        to: "bcabncanshuman2020@gmail.com",
+        subject: "Account Verification",
+        text: "HELLO" + user.name,
+        html: `<h2>HELLO<h2/>
+                      <h3> Hello, This is mail for taking the permission for taking the roll of ${role} at yumbites. </h3>
+                      <h3> here is my name : ${user.name} </h3> <br>
+                      <h3> here is my email : ${user.email} </h3> <br>
+                      <h3> here is my department : ${user.department} </h3> <br>
+                      <h3> here is my registration number : ${user.registration_no} </h3> <br>
+                      <h3> here is my session : ${user.session} </h3> <br>
+                      <a href="${BACKEND_BASE_URL}user/grant-role?userId=${user.id}&role=${role}"> Grant Access </a>
+                    `,
+      },function(error,result){
+        if(error){
+         console.log("err",error);
+        } else {
+          console.log(result);
+        }
+        transporter.close();}
+      );
+    } catch (error) {
+      console.log("error",error);
+    }
+  },
+  sendMailForVerificationForAdmin:async(user,role)=>{
+    try {
+      let info = await transporter.sendMail({
+        from: `Yum Bytes ${EMAIL_USER}`,
+        to: "bcabncanshuman2020@gmail.com",
+        subject: "Email Verification",
+        text: "HELLO" + user.name,
+        html: `<h2>HELLO<h2/>
+                      <h3> Hello, This is mail for taking the permission for taking the roll of ${role} at yumbites. </h3>
+                      <h3> here is my name : ${user.name} </h3> <br>
+                      <h3> here is my aadharCard number : ${user.aadharCard_no} </h3> <br>
+                      <a href="${BACKEND_BASE_URL}user/grant-role?userId=${user.id}&role=${role}"> Grant Access </a>
+                    `,
+      },function(error,result){
+        if(error){
+         console.log("err",error);
+        } else {
+          console.log(result);
+        }
+        transporter.close();}
+      );
+    } catch (error) {
+      console.log("error",error);
+    }
+  },
+  sendMailForVerificationForStaff:async(user,role)=>{
+    try {
+      let info = await transporter.sendMail({
+        from: `Yum Bytes ${EMAIL_USER}`,
+        to: "bcabncanshuman2020@gmail.com",
+        subject: "Email Verification",
+        text: "HELLO" + user.name,
+        html: `<h2>HELLO<h2/>
+                      <h3> Hello, This is mail for taking the permission for taking the roll of ${role} at yumbites. </h3>
+                      <h3> here is my name : ${user.name} </h3> <br>
+                      <h3> here is my department : ${user.department} </h3>
+                      <h3> here is my aadharCard number : ${user.aadharCard_no} </h3> <br>
+                      <a href="${BACKEND_BASE_URL}user/grant-role?userId=${user.id}&role=${role}"> Grant Access </a>
+                    `,
+      },function(error,result){
+        if(error){
+         console.log("err",error);
+        } else {
+          console.log(result);
+        }
+        transporter.close();}
+      );
+    } catch (error) {
+      console.log("error",error);
+    }
+  }
 };

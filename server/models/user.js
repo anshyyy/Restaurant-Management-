@@ -20,11 +20,16 @@ const userSchema = new Schema(
        unique:true
     },
     registration_no : {
-     type:String
+     type:String,
+     unique:true
+    },
+    aadharCard_no :{
+      type:String,
+      unique:true,
     },
     department :{
         type:mongoose.Schema.Types.ObjectId,
-        Ref:"Department"
+        Ref:"Department",
     },
     profilePic: {
       type: String,
@@ -34,7 +39,7 @@ const userSchema = new Schema(
     },
     role : {
         type:String,
-        enum :["user","staff","other","owner"],
+        enum :["admin","staff","student","other","canteen"],
         default :"user",
         required:true
     },

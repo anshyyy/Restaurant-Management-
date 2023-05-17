@@ -7,6 +7,7 @@ const connect = require('./config/database');
 const ApiRoutes = require("./routes/index");
 
 
+
 const setUpandStartServer = async ()=>{
     app.use(bodyparser.json());
     app.use(bodyparser.urlencoded({extended:true}));
