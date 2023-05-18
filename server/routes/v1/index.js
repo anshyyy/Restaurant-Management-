@@ -2,6 +2,7 @@ const express = require('express');
 const {create,getUser,verifyEmailtoken,signIn,grantRole} = require('../../controllers/userController');
 const Department = require('../../models/department')
 const {createFood,updateFood,getAllFood,deleteFood,getFood} = require('../../controllers/foodController');
+const {createFeedBack,updateFeedBack,deleteFeedBack,getFeedBack} = require('../../controllers/feebBackController')
 
 const router = express.Router();
 
@@ -34,6 +35,12 @@ router.delete("/food/:id",deleteFood);
 router.patch("/food/:item",updateFood);
 router.get("/food-all",getAllFood);
 router.get("/food/:id",getFood);
+
+//feedback routes
+router.post("/feedback",createFeedBack);
+router.delete('/feedback/:id',deleteFeedBack)
+router.patch('/feedback/:id',updateFeedBack);
+router.get("/feedback/:foodId",getFeedBack)
 
 
 module.exports = router;

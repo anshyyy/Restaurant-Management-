@@ -22,7 +22,7 @@ const foodSchema = new mongoose.Schema({
         required: true,
         default: 0
     }
-});
+},{timestamps:true});
 
 const Food = mongoose.model("Food", foodSchema);
 
