@@ -1,0 +1,92 @@
+const mongoose = require('mongoose');
+
+const foodSchema = new mongoose.Schema({
+    item: {
+        type: String,
+        required: true,
+    },
+    food_url: {
+        type: [String],
+        required: true,
+    },
+    rating: {
+        type: mongoose.Schema.Types.Number,
+        default: 0
+    },
+    price: {
+        type: mongoose.Schema.Types.Number,
+        required: true
+    },
+    stocks: {
+        type: mongoose.Schema.Types.Number,
+        required: true,
+        default: 0
+    }
+});
+
+const Food = mongoose.model("Food", foodSchema);
+
+
+const food = [
+    {
+        item: "Samosa",
+        price: 30,
+        rating: 0,
+        stocks: 25,
+        food_url: [
+            "https://i0.wp.com/vegecravings.com/wp-content/uploads/2017/03/samosa-recipe-step-by-step-instructions.jpg?fit=1801%2C1717&quality=65&strip=all&ssl=1",
+            "https://myfoodstory.com/wp-content/uploads/2021/08/Punjabi-Samosa-2.jpg"
+        ]
+    },
+    {
+        item: "Vada Pav",
+        price: 40,
+        ratings: 0,
+        stocks: 18,
+        food_url: [
+            "https://www.cookwithmanali.com/wp-content/uploads/2018/04/Vada-Pav-500x375.jpg",
+            "https://i0.wp.com/thetwincookingproject.net/wp-content/uploads/2020/01/Vada-Pav-with-Dry-Garlic-Chutney-12-scaled.jpg?fit=1707%2C2560&ssl=1"
+        ]
+    },
+    {
+        item: "Pani Puri",
+        price: 20,
+        ratings: 0,
+        stocks: 30,
+        food_url: [
+            "https://assets.cntraveller.in/photos/60ba1de4e1b212c19a817ca6/4:3/w_1024,h_768,c_limit/pani-puri-home-recipe-1366x768.jpg",
+            "https://media.istockphoto.com/id/511540742/photo/pani-puri-or-panipuri-golgappe-or-gol-gappe-chat-item.jpg?s=612x612&w=0&k=20&c=M7jqi1JW8G_WkBSUhW6krCzLBqRi0VxSZzHEcfRPPdo="
+        ]
+    },
+    {
+        item: "Bhel Puri",
+        price: 35,
+        ratings: 0,
+        stocks: 40,
+        food_url: [
+            "https://www.vegrecipesofindia.com/wp-content/uploads/2012/08/bhel-puri-recipe-1.jpg",
+            "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/09/bhel-puri.jpg"
+        ]
+    },
+    {
+        item: "Dosa",
+        price: 50,
+        ratings: 0,
+        stocks: 15,
+        food_url: [
+            "https://static.toiimg.com/thumb/54289752.cms?width=1200&height=900",
+            "https://c2.staticflickr.com/8/7482/26911291874_9c7c661b79_z.jpg"
+        ]
+    }
+];
+
+
+Food.find().then(async (value) => {
+    console.log("Food", value.length);
+    if (value.length === 0) {
+        await Food.insertMany(food, { ordered: false });
+    }
+});
+
+module.exports = Food;
+

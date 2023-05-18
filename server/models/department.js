@@ -56,6 +56,12 @@ const names = [
   { name: 'Department of Applied Sciences & Humanities' }
 ];
 
+
+Department.find().then((value)=>{
+
+console.log("department",value.length);
+
+if(value.length===0){
 // Define an async function for the bulk insertion
 const bulkInsertNames = async () => {
   try {
@@ -75,6 +81,11 @@ const bulkInsertNames = async () => {
 
 // Call the async function to execute the bulk insertion
 bulkInsertNames();
+
+}
+
+}
+);
 
 
 

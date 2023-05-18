@@ -1,6 +1,7 @@
 const express = require('express');
 const {create,getUser,verifyEmailtoken,signIn,grantRole} = require('../../controllers/userController');
 const Department = require('../../models/department')
+const {createFood,updateFood,getAllFood,deleteFood,getFood} = require('../../controllers/foodController');
 
 const router = express.Router();
 
@@ -25,6 +26,14 @@ router.get("/department",async (req,res)=>{
         data : await Department.find()
     })
 });
+
+
+//food routes 
+router.post("/food",createFood);
+router.delete("/food/:id",deleteFood);
+router.patch("/food/:item",updateFood);
+router.get("/food-all",getAllFood);
+router.get("/food/:id",getFood);
 
 
 module.exports = router;
