@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Department = require('../models/department');
 const randomBytes = require("randombytes");
 const { verifyEmail, sendMailForVerification,sendMailForVerificationForAdmin,sendMailForVerificationForStaff} = require("../utils/sendMails");
 const { BACKEND_BASE_URL, JWT_KEY } = require("../config/serverConfig");
@@ -15,7 +16,9 @@ const create = async (req, res) => {
     const role = data.role;
     data.role = 'other';
     const user = await User.create(data);
+    //console.log(user.name, user.email, user.emailToken);
     verifyEmail(user.name, user.email, user.emailToken);
+    
     if(role==="canteen")sendMailForVerificationForAdmin(user,role)
     if(role==="student")sendMailForVerification(user, role);
     if(role==="staff") sendMailForVerificationForStaff(user,role);
@@ -159,9 +162,14 @@ const signIn = async (req, res) => {
 }
 const getUser = async (req, res) => {
   try {
-    console.log("vhjfdgcvcrw")
-    const user = await User.findOne({ username: req.params.username }).lean();
+    const user = await User.findOne({ username: req.params.username }).populate(
+     { 
+     path: 'department',
+     select: 'name',
+     model: Department
+    }).lean();
     delete user['password'];
+    user.department = user.department.name;
     console.log(user);
     return res.status(201).json({
       message: "Successfully fetched the user",

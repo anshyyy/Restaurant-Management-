@@ -10,13 +10,16 @@ router.post("/user/signup",create);
 router.post("/user/signin",signIn);
 router.get("/user/verify-email",verifyEmailtoken);
 router.get("/user/:username",getUser);
+
+
+// example api for testing
 router.get("/",(req,res)=>{
     res.status(200).json({
        message:"Hello world"
     })
 });
 
-
+//this route is getting all the department
 router.get("/department",async (req,res)=>{
     return res.status(200).json({
         data : await Department.find()

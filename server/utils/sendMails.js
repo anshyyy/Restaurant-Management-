@@ -13,9 +13,10 @@ let transporter = nodemailer.createTransport({
 
 module.exports = {
   verifyEmail: async function verifyUserEmail(name, userEmail, token) {
+   // console.log("in mail",name, userEmail, token);
     try {
       let info = await transporter.sendMail({
-        from: `Yum Bytes ${EMAIL_USER}`,
+        from: `Canteen Club ${EMAIL_USER}`,
         to: userEmail,
         subject: "Email Verification",
         text: "HELLO" + name,
