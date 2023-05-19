@@ -1,5 +1,6 @@
 const Food = require('../models/food');
 
+
 const createFood = async(req,res)=> {
       try {
         console.log(req.body);
@@ -122,6 +123,34 @@ const getFood = async(req,res)=>{
     }
 }
 
+const searchFoodItems = async(req, res)=> {
+    console.log(req.query.k);
+    const regex = new RegExp(req.query.k, 'i');
+    console.log(regex);
+    try {
+        const items = await Food.find({ item: { $regex: regex } });
+        console.log(items);
+        if (items.length === 0) {
+            return res.status(202).json({
+                success:false,
+                message : "the food you have seach not availabe",
+            });
+          }  else {
+            return res.status(202).json({
+                success:false,
+                data:items,
+                message : "the food you have searched!!!",
+            });
+          }
+    } catch (error) {
+        console.log(error);
+        return res.status(501).json({
+            success:false,
+            err:error,
+            message : "food not available!!",
+        })
+    }
+}
 
 
 
@@ -131,4 +160,5 @@ module.exports = {
     deleteFood,
     getAllFood,
     getFood,
+    searchFoodItems
 }
