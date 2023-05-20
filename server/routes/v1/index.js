@@ -4,7 +4,9 @@ const Department = require('../../models/department')
 const {createFood,updateFood,getAllFood,deleteFood,getFood,searchFoodItems} = require('../../controllers/foodController');
 const {createFeedBack,updateFeedBack,deleteFeedBack,getFeedBack} = require('../../controllers/feebBackController');
 const {createOrder,getPendingOrders,completeOrder} = require("../../controllers/orderController");
-
+const upload = require('../../config/multer');
+const cloudinary = require('../../config/cloudinary');
+const fs = require('fs');
 const router = express.Router();
 
 //route for granting the desired role 
@@ -14,6 +16,33 @@ router.get("/user/verify-email",verifyEmailtoken);
 router.post("/user/signup",create);
 router.post("/user/signin",signIn);
 router.get("/user/:username",getUser);
+router.post("/upload-images",upload.array('image'),async (req,res)=>{
+     try {
+         const uploader = async(path) => await cloudinary.uploads(path,"Images");
+         const urls = []
+         const files = req.files;
+         console.log(req.files);
+         for(const file of files){
+            console.log(file);
+            const {path} = file;
+            const newPath = await uploader(path);
+            urls.push(newPath);
+            fs.unlinkSync(path);
+         }
+         return res.status(200).json({
+            success:true,
+            data : urls,
+            message : "Successfully uploaded images"
+         })
+        } catch(error){
+              console.log(error);
+              return res.status(500).json({
+                success:false,
+                err:error,
+                message : "Not able to upload images"
+             })
+        }
+});
 
 
 // example api for testing
