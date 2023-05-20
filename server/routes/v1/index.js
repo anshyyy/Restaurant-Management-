@@ -26,7 +26,7 @@ router.post("/upload-images",upload.array('image'),async (req,res)=>{
             console.log(file);
             const {path} = file;
             const newPath = await uploader(path);
-            urls.push(newPath);
+            urls.push(newPath.url);
             fs.unlinkSync(path);
          }
          return res.status(200).json({
