@@ -1,7 +1,7 @@
 const express = require('express');
 const {create,getUser,verifyEmailtoken,signIn,grantRole} = require('../../controllers/userController');
 const Department = require('../../models/department')
-const {createFood,updateFood,getAllFood,deleteFood,getFood,searchFoodItems} = require('../../controllers/foodController');
+const {createFood,updateFood,getAllFood,deleteFood,getFood,findByCategory,searchFoodItems} = require('../../controllers/foodController');
 const {createFeedBack,updateFeedBack,deleteFeedBack,getFeedBack} = require('../../controllers/feebBackController');
 const {createOrder,getPendingOrders,completeOrder} = require("../../controllers/orderController");
 const upload = require('../../config/multer');
@@ -68,6 +68,7 @@ router.post("/food",createFood);
 router.delete("/food/:id",deleteFood);
 router.patch("/food/:item",updateFood);
 router.get("/food-all",getAllFood);
+router.get("/food-by-category/:categoryId",findByCategory);
 
 //this will fetch a specific query
 router.get("/food/:id",getFood);
