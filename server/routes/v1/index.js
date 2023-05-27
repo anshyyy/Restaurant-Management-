@@ -60,8 +60,6 @@ router.get("/department",async (req,res)=>{
 });
 
 
-//food routes 
-
 // this route will fetch food realted to typed query
 router.get("/food",searchFoodItems);
 router.post("/food",createFood);
