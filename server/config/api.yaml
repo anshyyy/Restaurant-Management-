@@ -3,19 +3,168 @@ info:
   title: Canteen Club
   version: 1.0.0
 servers:
-  - url: http://api.example.com/v1
+  - url: http://localhost:3000/api/v1
     description: Optional server description, e.g. Main (production) server
 paths:
-  /users:
-    get:
-      summary: Returns a list of users.
-      description: Optional extended description in CommonMark or HTML.
+  /user/signin:
+    post:
+      tags:
+        - Login API
+      summary: User Login
+      description: Logs in a user and returns a JWT token and user ID.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: john.doe@example.com
+              password:
+                type: string
+                example: password123
       responses:
-        '200':    # status code
-          description: A JSON array of user names
-          content:
-            application/json:
-              schema: 
-                type: array
-                items: 
-                  type: string
+        200:
+          description: Success
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+              userId:
+                type: integer
+                example: 1234567890
+        501:
+          description: Not Implemented
+
+  /user/signuasdasdap:
+    post:
+      tags:
+        - SignUp API
+      summary: User Signup
+      description: Creates a new user account.
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - name: name
+          in: formData
+          required: true
+          type: string
+          example: John Doe
+        - name: email
+          in: formData
+          required: true
+          type: string
+          example: john.doe@example.com
+        - name: password
+          in: formData
+          required: true
+          type: string
+          example: password123
+        - name: registration_no
+          in: formData
+          required: false
+          type: string
+          example: ABC123
+        - name: session
+          in: formData
+          required: false
+          type: string
+          example: 2023-2024
+        - name: role
+          in: formData
+          required: true
+          type: string
+          enum:
+            - canteen
+            - student
+            - other
+        - name: department
+          in: formData
+          required: false
+          type: string
+          example: Computer Science
+        - name: aadharCard_no
+          in: formData
+          required: false
+          type: string
+          example: 1234-5678-9012
+      responses:
+        201:
+          description: Success
+          schema:
+            type: object
+            properties:
+              userId:
+                type: integer
+                example: 1234567890
+        400:
+          description: Bad Request
+        501:
+          description: Not Implemented
+
+  /user/signup:
+    post:
+      tags: -signUp 2
+      summary: User Signup
+      description: Creates a new user account.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: signupData
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: John Doe
+              email:
+                type: string
+                example: john.doe@example.com
+              password:
+                type: string
+                example: password123
+              registration_no:
+                type: string
+                example: ABC123
+              session:
+                type: string
+                example: 2023-2024
+              role:
+                type: string
+                enum:
+                  - canteen
+                  - student
+                  - other
+              department:
+                type: string
+                example: Computer Science
+              aadharCard_no:
+                type: string
+                example: 1234-5678-9012
+      responses:
+        201:
+          description: Success
+          schema:
+            type: object
+            properties:
+              userId:
+                type: integer
+                example: 1234567890
+        400:
+          description: Bad Request
+        501:
+          description: Not Implemented

@@ -8,9 +8,8 @@ const jwt = require("jsonwebtoken");
 
 const create = async (req, res) => {
   try {
-
     const data = req.body;
-    console.log(data);
+    console.log("data",data);
     data.username = data.email.split('@')[0];
     data.emailToken = randomBytes(32).toString("hex");
     const role = data.role;
