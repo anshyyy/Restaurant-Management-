@@ -1,22 +1,18 @@
-const explore = document.querySelector(".btn-explore");
-const myplate = document.querySelector(".btn-myPlate");
+const search = document.querySelector(".btn-search");
 const addplate= document.querySelectorAll(".btn-addToPlate");
-
 //button clicking function defined
-const funExplore = function () {
-  window.open("explore.html", "_self");
+const fun = function () {
+  window.open("search.html", "_self");
 };
 
-const funPlate = function(){
-  window.open("myplate.html", "_self");
-};
-explore.addEventListener("click", funExplore);
-myplate.addEventListener("click", funPlate)
+search.addEventListener("click", fun);
 
-// Swiper function defined
+
+
+// myswiper function defined
 var swiper1 = new Swiper(".mySwiper1", {
   slidesPerView: 4,
-  spaceBetween: 50,
+  spaceBetween: 25,
   slidesPerGroup: 3,
   loop: false,
   loopFillGroupWithBlank: true,
@@ -34,12 +30,12 @@ var swiper1 = new Swiper(".mySwiper1", {
   effect: 'slide',
   simulateTouch: true,
 });
-//swiper1 function ends
 
+//myswiper1 function ends
 
 var swiper2 = new Swiper(".mySwiper2", {
   slidesPerView: 4,
-  spaceBetween: 50,
+  spaceBetween: 25,
   slidesPerGroup: 3,
   loop: false,
   loopFillGroupWithBlank: true,
@@ -57,12 +53,12 @@ var swiper2 = new Swiper(".mySwiper2", {
   effect: 'slide',
   simulateTouch: true,
 });
-// swiper 2 function ends
 
+//myswiper2 function ends
 
 var swiper3 = new Swiper(".mySwiper3", {
   slidesPerView: 4,
-  spaceBetween: 50,
+  spaceBetween: 25,
   slidesPerGroup: 3,
   loop: false,
   loopFillGroupWithBlank: true,
@@ -80,11 +76,12 @@ var swiper3 = new Swiper(".mySwiper3", {
   effect: 'slide',
   simulateTouch: true,
 });
-// swiper 3 function ends
+
+//myswiper3 function ends
 
 var swiper4 = new Swiper(".mySwiper4", {
   slidesPerView: 4,
-  spaceBetween: 50,
+  spaceBetween: 25,
   slidesPerGroup: 3,
   loop: false,
   loopFillGroupWithBlank: true,
@@ -102,13 +99,59 @@ var swiper4 = new Swiper(".mySwiper4", {
   effect: 'slide',
   simulateTouch: true,
 });
-// swiper 4 function ends
 
+//myswiper3 function ends
 
-addplate.forEach(e=>{
-  e.addEventListener("click", function(){
-   e.innerHTML="Remove Item"
-   e.style.backgroundColor="#0d5d56"
-   });
+var swiper5 = new Swiper(".mySwiper5", {
+  slidesPerView: 4,
+  spaceBetween: 25,
+  slidesPerGroup: 3,
+  loop: false,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination5",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next5",
+    prevEl: ".swiper-button-prev5",
+  },
+  freeMode: true,
+  freeModeSticky: true,
+  speed: 900, // Adjust the value as needed
+  effect: 'slide',
+  simulateTouch: true,
 });
+
+//myswiper5 function ends
+
+var swiper6 = new Swiper(".mySwiper6", {
+  slidesPerView: 4,
+  spaceBetween: 25,
+  slidesPerGroup: 3,
+  loop: false,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination6",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next6",
+    prevEl: ".swiper-button-prev6",
+  },
+  freeMode: true,
+  freeModeSticky: true,
+  speed: 900, // Adjust the value as needed
+  effect: 'slide',
+  simulateTouch: true,
+});
+
+
+
+// addplate.forEach(e=>{
+//     e.addEventListener("click", function(){
+//      e.innerHTML="Remove Item"
+//      e.style.backgroundColor="#0d5d56"
+//      });
+//   });
 console.log("i am an local project aside form the git");

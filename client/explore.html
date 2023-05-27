@@ -4,9 +4,837 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>Yum Bites!!</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/explore.css" />
   </head>
   <body>
-    <h1>Explore</h1>
+    <nav><!-- creating the nav baar consisting LOGO, (Home, search, explore, My plate) and Sign in/up -->
+      <div class="nav-main"><!-- structure of this div ->  div< logo , div<Home, search, explore, My plate>, sign in/up >  -->
+        <button class="btn btn-logo">LOGO</button><!-- Logo button declaration -->
+        <div class="nav-mini"><!-- this div conatins 4 buttons Home, search, explore, My plate -->
+          <button class="btn btn-inUse btn-home">HOME</button><!--this button is the html page on which we are currently are  -->
+          <button class="btn btn-notInUse btn-search">Search</button><!-- this button is not in use and if someone clicks on it reaches to that HTML page-->
+          <button class="btn btn-notInUse btn-explore">Explore</button><!-- this button is not in use and if someone clicks on it reaches to that HTML page-->
+          <button class="btn btn-notInUse btn-myPlate">My Plate</button><!-- this button is not in use and if someone clicks on it reaches to that HTML page-->
+        </div>
+
+        <button class="btn btn-sign">Sign in/Sign up</button> <!-- Logo button declaration -->
+      </div> <!-- the div inside the nav is ended here  -->
+    </nav>
+
+
+   <h1 class="h-explore">Explore</h1>
+
+
+   <h2 class="card-heading h-bestSellers">Best Sellers</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper1 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/samosa 2 .jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees">10.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/thali 4.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 50.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/pizza.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 230.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/big-burger fries.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 150.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/pan bhaji.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 60.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/sanwich.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 45.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- sixth class done -->
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next1"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev1"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination swiper-pagination1"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+    <h2 class="card-heading h-tummyFullers">Tummy Fullers</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper2 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/briyani.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 200.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/big-burger fries.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 270.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/fish curry.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 480.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/chicken curry.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 360.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/chicken briyani.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 300.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/hot dog.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 100.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- sixth class done -->
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next2"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev2"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination swiper-pagination2"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+
+    <h2 class="card-heading h-quickSnaks">Quick Snacks</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper3 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/burger2.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 10.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/idli.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 50.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/hot dog 2.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 100.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/tea.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 10.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/samosa.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 10.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/french fry .jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 20.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- sixth class done -->
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next3"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev3"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination3 swiper-pagination"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+
+    <h2 class="card-heading h-burgerMomos">Burger & Momos</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper4 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/burger1.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 75.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/burger2.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 100.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/burger3.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 120.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/burger4.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 150.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/momos.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 30.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/momos2.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 45.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- sixth class done -->
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next4"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev4"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination4 swiper-pagination"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+
+    <h2 class="card-heading h-salad">Salad</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper5 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad 1.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 30.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad2.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 50.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad3.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 70.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad4.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 20.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad5.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 40.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/salad6.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 30.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next5"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev5"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination swiper-pagination5"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+
+    <h2 class="card-heading h-drinks">Drinks</h2>
+    <section>  <!--using the swiper file from js taking up a section and blocking the horizontal space and defining divs for card slider inside it ,this will contain the navigation arrows (next and previous) and the pagination and the cards and cards -->
+      <div class="swiper mySwiper6 container"> <!-- this div is the main container for our slider cards function-->
+        <div class="swiper-wrapper content"> <!-- this div will wraap everything inside it the movments of the cards-->
+          <!-- cards formation starts and first card is declared below-->
+          <div class="swiper-slide card">  <!-- this the actuall div that will be silded when navigation button will be clicked several(no of cards declared) different div's are stackded upon each other her  -->
+            <div class="card-content"> <!--this div will contain the image of the food and the details about it the structure is -> div< div(image), div(foodDetails), div(button) > -->
+              <div class="image"> <!-- this div contains the image of the food-->
+                <img
+                  class="img-foodCard"
+                  src="assets/images/lemondrink.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails"> <!--this div will contain the details about the food -->
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.7</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 50.00</span></span></span>
+              </div>
+              <div class="button"><!-- button div for the add food to plate -->
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- first card done second class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/tea.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.3</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 10.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- second card done  third class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/organgedrink.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.8</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 30.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- third card done forth class starts -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/sprite.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.6</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 30.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- forth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/cocadrink.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.5</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 35.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- fifth card done -->
+          <div class="swiper-slide card">
+            <div class="card-content">
+              <div class="image">
+                <img
+                  class="img-foodCard"
+                  src="assets/images/bluemoctail.jpg"
+                  alt="food-card"
+                />
+              </div>
+              <div class="foodDetails">
+                <span class="fName">Product Name</span>
+                <span class="fRating">Rating: <span class="fRate">4.4</span>/5</span>
+                <span class="fPrice">Price: <span class="green">&#8377<span class="fRupees"> 50.00</span></span></span>
+              </div>
+              <div class="button">
+                <button class="btn-addToPlate">Add to Plate</button>
+              </div>
+            </div>
+          </div>
+          <!-- sixth class done -->
+        </div>
+      </div>
+
+      <div class="swiper-button-next swiper-button-next6"></div><!--this div is for the next navigation arrow on  the slider  -->
+      <div class="swiper-button-prev swiper-button-prev6"></div><!-- this div is for the prev navigation arrow on the slider  -->
+      <div class="swiper-pagination swiper-pagination6"></div><!-- this div is for the pagination which is below the cards  -->
+    </section>
+
+
+    <!-- swiper JS bundel-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/javascript/explore.js"></script>
   </body>
 </html>
