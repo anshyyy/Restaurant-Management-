@@ -180,6 +180,11 @@ header .profile-btn{
     font-weight: 500;
     margin: 1em 3em .8em;
 }
+.title{
+    font-size: 1.7em;
+    font-weight: 800;
+    margin: .2em auto .2em 3em;
+}
 
 
 /* Confirm button */
@@ -335,7 +340,7 @@ header .profile-btn{
   
   .movements .foodOrderDetails .aboutFood{
      display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
      width:900px;
      background: #FEF0EC;
      border-radius: 20px;
@@ -355,26 +360,26 @@ header .profile-btn{
     flex-direction: column;
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 33px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+    font-weight: 700;
+    font-size: 1.3em;
+    line-height: 2rem;
+    justify-content: flex-start;
+    /* align-items: center; */
+    text-align: left;
     margin-top: 15px;
-    margin-left: -250px;
+    /* margin-left: -250px; */
   }
   
   .foodRating{
-    font-size:15px;
+    font-size: 1rem;
     font-weight: 500;
-    margin-left: -70px;
+    /* margin-left: -70px; */
   }
   
   .foodPrice{
     font-size:20px;
     font-weight: 600;
-    margin-left: -40px;
+    /* margin-left: -40px; */
   }
   
   .priceColor{
